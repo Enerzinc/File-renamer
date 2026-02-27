@@ -22,6 +22,8 @@ class FileRenamer:
 
         self.files_in_folder = [p for p in self.folder_path.iterdir() if p.is_file()]
         for file in self.files_in_folder:
+            if old_char in file.name:
+
                 new_name = file.name.replace(old_char, new_char)
 
                 if new_name == file.name:
@@ -33,9 +35,14 @@ class FileRenamer:
                     file.rename(new_path)
                 except Exception as error:
                     print(f"Error renaming {file.name}: {error}")
+            else:
+                print(f"No '{old_char}' found in {file.name}, skipping.")
         print("\n Process Completed")
 
-if __name__ == "__main__":
-  folder = input("Enter the folder path: ")
-  renamer = FileRenamer(folder)
-  renamer.remove_dashes()
+while True:
+    path = input("\nEnter folder path (type 'exit' to stop): ")
+    if path == "exit":
+        print("Program ended.")
+        break
+    renamer = FileRenamer(path)
+    renamer.replace_character()
