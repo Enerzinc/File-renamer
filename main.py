@@ -14,26 +14,26 @@ class FileRenamer:
         return True
 
     def replace_character(self):
-      if not self.validate_folder():
-        return
+        if not self.validate_folder():
+            return
 
-      old_char = input("Enter the character/symbol to replace: ")
-      new_char = input("Enter the new character/symbol to use: ")
+        old_char = input("Enter the character/symbol to replace: ")
+        new_char = input("Enter the new character/symbol to use: ")
 
-      self.files_in_folder = [p for p in self.folder_path.iterdir() if p.is_file()]
-      for file in files_in_folder:
-            new_name = file.name.replace(old_char, new_char)
+        self.files_in_folder = [p for p in self.folder_path.iterdir() if p.is_file()]
+        for file in self.files_in_folder:
+                new_name = file.name.replace(old_char, new_char)
 
-            if new_name == file.name:
-                continue 
+                if new_name == file.name:
+                    continue 
 
-            new_path = file.with_name(new_name)
+                new_path = file.with_name(new_name)
 
-            try:
-                file.rename(new_path)
-            except Exception as error:
-                print(f"Error renaming {file.name}: {error}")
-      print("\n Process Completed")
+                try:
+                    file.rename(new_path)
+                except Exception as error:
+                    print(f"Error renaming {file.name}: {error}")
+        print("\n Process Completed")
 
 if __name__ == "__main__":
   folder = input("Enter the folder path: ")
