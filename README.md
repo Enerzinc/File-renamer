@@ -37,10 +37,14 @@ If it shows a Python version, you are ready.
 1. Open the folder where your Python file is saved.
 2. Click the address bar.
 3. Type: cmd
-4. Press Enter.
+4. Press Enter
 
-### Step 3: Run the Program
+### Step 4: Run the Program
 
-Type:
-python main.py
-Then press Enter.
+1. type "python (name of the python file)
+2. Press Enter
+3. Fill the questions:
+        * Enter the folder path:
+        * Enter the character/symbol to replace:
+        * Enter the new character/symbol to use: 
+4. Files are done renaming 
